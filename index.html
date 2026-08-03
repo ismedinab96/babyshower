@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Shower - Familia Medina Tarqui</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css"/>
+  
+</head>
+
+<body>
+  <div class="intro-screen" id="introScreen" aria-label="Pantalla inicial de invitación">
+    <div class="intro-card">
+      <span class="eyebrow">Familia Medina Tarqui</span>
+      <span class="script intro-title">Baby Shower</span>
+      <p class="intro-lead">Un osito travieso está por llegar. Toca el sobre para abrir tu invitación.</p>
+
+      <div class="envelope-stage">
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir invitación">
+          <div class="envelope-glow"></div>
+
+          <div class="letter-inner" id="letterInner">
+            <div class="letter-content">
+              <span class="script">¡Es un niño!</span>
+              <div class="gold-line small"></div>
+              <p>Queremos celebrar contigo la llegada de nuestro pequeño osito. ¡Vamos a festejar juntos!</p>
+              <div class="letter-icons" aria-hidden="true">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f37c.png" alt="">
+                <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6bc.png" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="envelope-pocket"></div>
+          <div class="envelope-flap"></div>
+          <div class="wax-seal">🧸</div>
+        </div>
+
+        <p class="tap-hint" id="tapHint">Toca el sobre para abrir</p>
+      </div>
+
+      <div class="intro-icons" aria-hidden="true">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6bc.png" alt="">
+        <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f338.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="thread-lines"></div>
+
+  <div class="web-png-decor" aria-hidden="true">
+    <img class="png-deco large" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="" loading="lazy">
+    <img class="png-deco" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6bc.png" alt="" loading="lazy">
+    <img class="png-deco tiny" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f338.png" alt="" loading="lazy">
+    <img class="png-deco" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f37c.png" alt="" loading="lazy">
+    <img class="png-deco large" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="" loading="lazy">
+    <img class="png-deco tiny" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f319.png" alt="" loading="lazy">
+    <img class="png-deco" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f380.png" alt="" loading="lazy">
+    <img class="png-deco tiny" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2b50.png" alt="" loading="lazy">
+    <img class="png-deco" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="" loading="lazy">
+    <img class="png-deco tiny" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f338.png" alt="" loading="lazy">
+    <img class="png-deco large" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6bc.png" alt="" loading="lazy">
+    <img class="png-deco" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f37c.png" alt="" loading="lazy">
+  </div>
+
+  <div class="button-cloud" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+  <!--
+    Música de fondo:
+    Coloca tu archivo de audio en:
+    assets/audio/coraline-exploration.mp3
+
+    Nota: usa únicamente un archivo de audio para el que tengas permiso/licencia.
+    Los navegadores pueden bloquear la reproducción automática con sonido; por eso
+    el botón queda funcional para activar o pausar.
+  -->
+  <audio id="bgMusic" src="assets/audio/musicafondo.mp3?v=20260616-6" preload="auto" loop playsinline></audio>
+  <button class="audio-control" id="audioBtn" type="button" aria-label="Pausar o activar música"><span id="audioIcon">♪</span><span class="audio-label" id="audioLabel">Música</span></button>
+
+  <div class="sound-toast" id="soundToast" role="button" tabindex="0" aria-label="Activar música">
+    <span>♪</span>
+    <strong>Activar música</strong>
+  </div>
+
+  <main class="page">
+    <header class="hero lux-card">
+      <img class="card-deco top-left" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f380.png" alt="" loading="lazy">
+      <img class="card-deco bottom-right" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f6bc.png" alt="" loading="lazy">
+
+      <div class="hero-text">
+        <span class="eyebrow">Baby Shower</span>
+        <span class="script">Celebrando la llegada de
+        </span>
+        <h1>Nuestro<br>Bebé</h1>
+        <div class="gold-line"></div>
+        <p class="hero-copy">
+          Con mucha ilusión te invitamos a celebrar la próxima llegada de nuestro bebé.
+          Será una tarde especial para compartir amor, alegría y buenos deseos en familia.
+        </p>
+
+        <div class="date-pill">
+          <span>Sábado</span>
+          <strong>22 agosto 2026</strong>
+          <span>15:00</span>
+        </div>
+
+        <div class="quick-actions">
+          <a class="btn secondary" href="#ubicacion">Ver ubicación</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="assets/img/eve-baby-1.jpeg" alt="Fotografía de Evelin López Luna">
+      </div>
+    </header>
+
+    <section class="lux-card">
+      <img class="card-deco top-left" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f338.png" alt="" loading="lazy">
+      <img class="card-deco bottom-right" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="" loading="lazy">
+
+      <div class="welcome">
+        <p class="eyebrow">Una dulce espera</p>
+        <h2>Nos encantará compartir este momento contigo</h2>
+        <div class="gold-line"></div>
+        <p>
+          Tu presencia hará más especial esta celebración. Ven a acompañarnos en una tarde
+          llena de detalles, ternura y buenos deseos para esta nueva etapa.
+        </p>
+      </div>
+    </section>
+
+    <section class="lux-card" id="contador">
+      <img class="card-deco top-left" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f319.png" alt="" loading="lazy">
+      <img class="card-deco bottom-right" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2b50.png" alt="" loading="lazy">
+
+      <p class="eyebrow">Cuenta regresiva</p>
+      <h2>Faltan</h2>
+
+      <div class="countdown-grid">
+        <div class="time-box">
+          <strong id="days">00</strong>
+          <span>Días</span>
+        </div>
+        <div class="time-box">
+          <strong id="hours">00</strong>
+          <span>Horas</span>
+        </div>
+        <div class="time-box">
+          <strong id="minutes">00</strong>
+          <span>Minutos</span>
+        </div>
+        <div class="time-box">
+          <strong id="seconds">00</strong>
+          <span>Segundos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="lux-card">
+      <img class="card-deco top-left" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f5.png" alt="" loading="lazy">
+
+      <p class="eyebrow">Galería</p>
+      <h2>Momentos para recordar</h2>
+
+      <div class="carousel" aria-label="Carrusel de fotografías">
+        <button class="carousel-btn prev" type="button" onclick="moveSlide(-1)" aria-label="Foto anterior">‹</button>
+
+        <div class="slides" id="slides">
+          <div class="slide portrait">
+            <img src="assets/img/eve-baby-1.jpeg" alt="Evelin con vestido lila">
+          </div>
+          <div class="slide">
+            <img src="assets/img/eve-baby-2.png" alt="Collage de fotografías de Evelin">
+          </div>
+          <div class="slide portrait">
+            <img src="assets/img/eve-baby-3.jpeg" alt="Evelin con vestido blanco">
+          </div>
+        </div>
+
+        <button class="carousel-btn next" type="button" onclick="moveSlide(1)" aria-label="Foto siguiente">›</button>
+      </div>
+
+      <div class="dots" id="dots" aria-label="Indicadores del carrusel"></div>
+    </section>
+
+    <section class="lux-card">
+      <img class="card-deco top-left" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f7.png" alt="" loading="lazy">
+      <img class="card-deco bottom-right" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f9f8.png" alt="" loading="lazy">
+
+      <p class="eyebrow">Detalles</p>
+      <h2>Fecha y hora</h2>
+
+      <div class="details-grid">
+        <div class="detail">
+          <div class="icon">🗓️</div>
+          <h3>Sábado 22 de agosto</h3>
+          <p>Te esperamos para celebrar juntos este momento tan especial.</p>
+        </div>
+
+        <div class="detail">
+          <div class="icon">🕓</div>
+          <h3>15:00</h3>
+          <p>Una tarde tranquila para compartir, convivir y celebrar con cariño.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="lux-card" id="ubicacion">
+      <img class="card-deco bottom-right" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f338.png" alt="" loading="lazy">
+
+      <p class="eyebrow">Ubicación</p>
+      <h2>Cómo llegar</h2>
+      <p>
+        Av. Tito Yupanqui Nro. 1136 Villa Copacabana
+      </p>
+
+      <div class="map-box">
+        <iframe
+          title="Mapa de ubicación"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!4v1785783572827!6m8!1m7!1sXJj0Ia5SKVkJ3HufpjaI0A!2m2!1d-16.49191006699765!2d-68.11757472485404!3f220.5302045811714!4f-3.355807060220272!5f0.7820865974627469"">
+        </iframe>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <a
+          class="btn"
+          target="_blank"
+          rel="noopener"
+          href="https://maps.app.goo.gl/x3WpcHDxn5B7WHZt7">
+          Abrir en Google Maps
+        </a>
+        
+      </div>
+    </section>
+
+    <footer>
+      Esperamos contar con tu presencia para celebrar juntos la llegada de nuestro bebé
+      <br> Familia Medina Tarqui
+      <br> Diseñado por Iver Samuel Medina Balboa - 2026
+      
+    </footer>
+  </main>
+
+  <script src="/script.js?v=20260616-6"></script>
+</body>
+</html>
