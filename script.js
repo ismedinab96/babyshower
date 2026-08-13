@@ -8,68 +8,84 @@
     // ==
     // CUENTA REGRESIVA
     // ==
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
+    try {
+      const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
 
-      if (distance <= 0) {
-        clearInterval(timer);
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-        return;
+        if (distance <= 0) {
+          clearInterval(timer);
+          document.getElementById("days").textContent = "00";
+          document.getElementById("hours").textContent = "00";
+          document.getElementById("minutes").textContent = "00";
+          document.getElementById("seconds").textContent = "00";
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = String(days).padStart(2, "0");
+        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+      }, 1000);
+    } catch (err) {
+      console.warn("Cuenta regresiva: no se pudo inicializar (revisa los ids days/hours/minutes/seconds).", err);
+    }
+
+    // ==
+    // CARRUSEL (se activa solo si existe la sección de galería en el HTML)
+    // ==
+    let moveSlide = () => {};
+    let goToSlide = () => {};
+
+    try {
+      let currentSlide = 0;
+      const slides = document.getElementById("slides");
+      const dotsContainer = document.getElementById("dots");
+
+      if (!slides || !dotsContainer) {
+        throw new Error("No se encontró #slides o #dots en el HTML (¿se quitó la sección de galería?).");
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      const totalSlides = slides.children.length;
 
-      document.getElementById("days").textContent = String(days).padStart(2, "0");
-      document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-      document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-      document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-    }, 1000);
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement("button");
+        dot.className = "dot" + (i === 0 ? " active" : "");
+        dot.type = "button";
+        dot.setAttribute("aria-label", "Ir a foto " + (i + 1));
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+      }
 
-    // ==
-    // CARRUSEL
-    // ==
-    let currentSlide = 0;
-    const slides = document.getElementById("slides");
-    const totalSlides = slides.children.length;
-    const dotsContainer = document.getElementById("dots");
+      function updateCarousel() {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
 
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement("button");
-      dot.className = "dot" + (i === 0 ? " active" : "");
-      dot.type = "button";
-      dot.setAttribute("aria-label", "Ir a foto " + (i + 1));
-      dot.onclick = () => goToSlide(i);
-      dotsContainer.appendChild(dot);
+        document.querySelectorAll(".dot").forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentSlide);
+        });
+      }
+
+      moveSlide = (direction) => {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateCarousel();
+      };
+
+      goToSlide = (index) => {
+        currentSlide = index;
+        updateCarousel();
+      };
+
+      setInterval(() => {
+        moveSlide(1);
+      }, 6000);
+    } catch (err) {
+      console.warn("Carrusel: no se pudo inicializar.", err);
     }
-
-    function updateCarousel() {
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-      document.querySelectorAll(".dot").forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentSlide);
-      });
-    }
-
-    function moveSlide(direction) {
-      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-      updateCarousel();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateCarousel();
-    }
-
-    setInterval(() => {
-      moveSlide(1);
-    }, 6000);
 
     // ==
     // DINÁMICA NIÑO / NIÑA
@@ -334,5 +350,7 @@
       });
 
       updateAudioButton();
+    } else {
+      console.warn("Sobre/música: no se encontró #bgMusic o #audioBtn en el HTML; revisa que esos ids existan.");
     }
 
