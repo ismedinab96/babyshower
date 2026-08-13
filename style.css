@@ -793,7 +793,7 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       text-align: center;
     }
 
