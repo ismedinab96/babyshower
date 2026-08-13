@@ -1,7 +1,7 @@
    // ==
     // CONFIGURACIÓN GENERAL
     // ==
-    const eventDate = new Date("2026-08-22T15:00:00-04:00").getTime();
+    const eventDate = new Date("2026-08-22T16:00:00-04:00").getTime();
     const whatsappNumber = "59172586959";
     let genderChoice = "";
 
